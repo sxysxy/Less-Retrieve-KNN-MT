@@ -1,0 +1,5 @@
+BLEU = 57.18
+Each inference time in seconds = 52.2 52.2 52.6
+Average inference time = 52.333333333333336s
+Each inference speed(tokens/s) = 1513.76 1512.66 1500.88
+Average inference speed = 1509.1000000000001 tokens/s

@@ -1,0 +1,7 @@
+BLEU = 45.52
+Each inference time in seconds = 18.7 18.9 18.9
+Average inference time = 18.833333333333332s
+Each inference speed(tokens/s) = 1630.32 1613.03 1612.48
+Average inference speed = 1618.61 tokens/s
+Each KNN retrieving time = 4.02031293255277 4.043488961178809 4.052493102150038
+Average KNN retrieving time = 4.038764998627205s
