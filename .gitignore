@@ -142,7 +142,8 @@ outputs
 
 # knn-box
 data-bin
-# datastore
+datastore
+!knnbox/datastore
 pretrain-models
 save-models
 knnbox-scripts/lr-knn-mt/*.txt

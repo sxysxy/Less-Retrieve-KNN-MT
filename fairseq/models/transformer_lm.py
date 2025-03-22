@@ -60,7 +60,7 @@ class TransformerLanguageModelConfig(FairseqDataclass):
         default=False,
         metadata={"help": "don't add an extra layernorm after the last decoder block"},
     )
-    adaptive_softmax_cutoff: Optional[str] = field(
+    adaptive_softmax_cutoff: str = field(
         default=None,
         metadata={
             "help": "comma separated list of adaptive softmax cutoff points. "
@@ -106,7 +106,7 @@ class TransformerLanguageModelConfig(FairseqDataclass):
     adaptive_input_factor: float = field(
         default=4, metadata={"help": "adaptive input factor"}
     )
-    adaptive_input_cutoff: Optional[str] = field(
+    adaptive_input_cutoff: str = field(
         default=None,
         metadata={"help": "comma separated list of adaptive input cutoff points."},
     )
@@ -129,7 +129,7 @@ class TransformerLanguageModelConfig(FairseqDataclass):
     decoder_layerdrop: float = field(
         default=0.0, metadata={"help": "LayerDrop probability for decoder"}
     )
-    decoder_layers_to_keep: Optional[str] = field(
+    decoder_layers_to_keep: str = field(
         default=None,
         metadata={
             "help": "which layers to *keep* when pruning as a comma-separated list"

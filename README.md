@@ -10,15 +10,20 @@ Some results requre re-run the programs to see.
 
 In the folder which contains this README.md, run:
 
-```
-conda create -n knn-box python=3.7
+```bash
+conda create -n knn-box python=3.9
 conda activate knn-box
 conda install pytorch==1.10.0 cudatoolkit=11.3 -c pytorch -c conda-forge
+pip uninstall numpy
+pip install numpy==1.21.6 scikit-learn==1.0.2 editdistance sacremoses elasticsearch
 conda install faiss-gpu -c pytorch
 pip install --editable ./
 ```
 
-If some other packages is missing, just pip install it.
+If some other packages is missing, just pip install it. If the conda pytorch does not work, you can use pip: 
+```bash
+pip install torch==1.10.1+cu111 torchvision==0.11.2+cu111 torchaudio==0.10.1 -f https://download.pytorch.org/whl/cu111/torch_stable.html
+```
 
 ### Get dataset and base neural model:
 
@@ -96,7 +101,7 @@ and make inference:
 cd knnbox-scripts/lr-knn-mt
 python inference.py --dataset it --model vanilla
 python inference.py --dataset it --model lr
-```
+``
 
 You may need to **edit** this build_datastore.sh and change another dataset, generated datastore will be placed in datastore folder.
 

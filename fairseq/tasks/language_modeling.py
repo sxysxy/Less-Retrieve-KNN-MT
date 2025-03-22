@@ -86,7 +86,7 @@ class LanguageModelingConfig(FairseqDataclass):
     )
     # TODO common vars below add to parent
     seed: int = II("params.common.seed")
-    dataset_impl: Optional[ChoiceEnum(get_available_dataset_impl())] = II(
+    dataset_impl: str = II(
         "params.dataset.dataset_impl"
     )
     data_buffer_size: int = II("params.dataset.data_buffer_size")

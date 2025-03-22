@@ -40,10 +40,10 @@ class CommonParams(FairseqDataclass):
             "help": "log progress every N batches (when progress bar is disabled)"
         },
     )
-    log_format: Optional[LOG_FORMAT_CHOICES] = field(
+    log_format: str = field(
         default=None, metadata={"help": "log format to use"}
     )
-    tensorboard_logdir: Optional[str] = field(
+    tensorboard_logdir: str = field(
         default=None,
         metadata={
             "help": "path to save logs for tensorboard, should match --logdir "
@@ -75,7 +75,7 @@ class CommonParams(FairseqDataclass):
     fp16_init_scale: int = field(
         default=2 ** 7, metadata={"help": "default FP16 loss scale"}
     )
-    fp16_scale_window: Optional[int] = field(
+    fp16_scale_window: int = field(
         default=None,
         metadata={"help": "number of updates before increasing loss scale"},
     )
@@ -89,10 +89,10 @@ class CommonParams(FairseqDataclass):
         default=1e-4,
         metadata={"help": "minimum FP16 loss scale, after which training is stopped"},
     )
-    threshold_loss_scale: Optional[float] = field(
+    threshold_loss_scale: float = field(
         default=None, metadata={"help": "threshold FP16 loss scale from below"}
     )
-    user_dir: Optional[str] = field(
+    user_dir: str = field(
         default=None,
         metadata={
             "help": "path to a python module containing custom extensions (tasks and/or architectures)"
@@ -121,7 +121,7 @@ class CommonParams(FairseqDataclass):
             "the checkpoint"
         },
     )
-    quantization_config_path: Optional[str] = field(
+    quantization_config_path: str = field(
         default=None, metadata={"help": "path to quantization config file"}
     )
     profile: bool = field(
@@ -137,13 +137,13 @@ class DistributedTrainingParams(FairseqDataclass):
             "help": "total number of GPUs across all nodes (default: all visible GPUs)"
         },
     )
-    distributed_rank: Optional[int] = field(
+    distributed_rank: int = field(
         default=0, metadata={"help": "rank of the current worker"}
     )
     distributed_backend: str = field(
         default="nccl", metadata={"help": "distributed backend"}
     )
-    distributed_init_method: Optional[str] = field(
+    distributed_init_method: str = field(
         default=None,
         metadata={
             "help": "typically tcp://hostname:port that will be used to "
@@ -200,10 +200,10 @@ class DistributedTrainingParams(FairseqDataclass):
             "batchnorm population statistics"
         },
     )
-    distributed_wrapper: DISTRIBUTED_WRAPPER_CHOICES = field(
+    distributed_wrapper: str = field(
         default="DDP", metadata={"help": "DistributedDataParallel backend"}
     )
-    slowmo_momentum: Optional[float] = field(
+    slowmo_momentum: float = field(
         default=None,
         metadata={
             "help": "SlowMo momentum term; by default use 0.0 for 16 GPUs, "
@@ -297,10 +297,10 @@ class DatasetParams(FairseqDataclass):
         default=False,
         metadata={"help": "ignore too long or too short lines in valid and test set"},
     )
-    max_tokens: Optional[int] = field(
+    max_tokens: int = field(
         default=None, metadata={"help": "maximum number of tokens in a batch"}
     )
-    batch_size: Optional[int] = field(
+    batch_size: int = field(
         default=None, metadata={"help": "number of examples in a batch"}
     )
     required_batch_size_multiple: int = field(
@@ -312,7 +312,7 @@ class DatasetParams(FairseqDataclass):
             "help": "maximum sequence length in batch will be a multiplier of this value"
         },
     )
-    dataset_impl: Optional[ChoiceEnum(get_available_dataset_impl())] = field(
+    dataset_impl: str = field(
         default=None, metadata={"help": "output dataset implementation"}
     )
     data_buffer_size: int = field(
@@ -338,20 +338,20 @@ class DatasetParams(FairseqDataclass):
     validate_after_updates: int = field(
         default=0, metadata={"help": "dont validate until reaching this many updates"}
     )
-    fixed_validation_seed: Optional[int] = field(
+    fixed_validation_seed: int = field(
         default=None, metadata={"help": "specified random seed for validation"}
     )
     disable_validation: bool = field(
         default=False, metadata={"help": "disable validation"}
     )
-    max_tokens_valid: Optional[int] = field(
+    max_tokens_valid: int = field(
         default=None,
         metadata={
             "help": "maximum number of tokens in a validation batch"
             " (defaults to --max-tokens)"
         },
     )
-    batch_size_valid: Optional[int] = field(
+    batch_size_valid: int = field(
         default=None,
         metadata={
             "help": "batch size of the validation batch" " (defaults to --batch-size)"
@@ -431,7 +431,7 @@ class CheckpointParams(FairseqDataclass):
             "(default: <save-dir>/checkpoint_last.pt"
         },
     )
-    finetune_from_model: Optional[str] = field(
+    finetune_from_model: str = field(
         default=None,
         metadata={
             "help": "finetune from a pretrained model; note that meters and lr scheduler will be reset"
@@ -517,10 +517,10 @@ class CheckpointParams(FairseqDataclass):
 
 @dataclass
 class CommonEvalParams(FairseqDataclass):
-    path: Optional[str] = field(
+    path: str = field(
         default=None, metadata={"help": "path(s) to model file(s), colon separated"}
     )
-    remove_bpe: Optional[str] = field(
+    remove_bpe: str = field(
         default=None,
         metadata={
             "help": "remove BPE tokens before scoring (can be set to sentencepiece)",
@@ -534,7 +534,7 @@ class CommonEvalParams(FairseqDataclass):
             "help": "a dictionary used to override model args at generation that were used during model training"
         },
     )
-    results_path: Optional[str] = field(
+    results_path: str = field(
         default=None, metadata={"help": "path to save eval results (optional)"}
     )
 

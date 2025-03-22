@@ -12,7 +12,7 @@ DATA_PATH=$PROJECT_PATH/data-bin/it
 DATASTORE_LOAD_PATH=$PROJECT_PATH/datastore/vanilla/it
 
 
-CUDA_VISIBLE_DEVICES=0 python $PROJECT_PATH/knnbox-scripts/common/generate.py $DATA_PATH \
+CUDA_VISIBLE_DEVICES=1 python $PROJECT_PATH/knnbox-scripts/common/generate.py $DATA_PATH \
 --task translation \
 --path $BASE_MODEL \
 --dataset-impl mmap \

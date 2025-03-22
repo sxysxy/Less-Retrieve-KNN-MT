@@ -168,7 +168,7 @@ def load_faiss_index(path, n_probe,
         co = faiss.GpuClonerOptions()
         co.useFloat16 = True
         index = faiss.index_cpu_to_gpu(res, 0, index, co)
-    if verbose:
+    if 0:
         print("  > reading index took {} s".format(time.time()-start_time))
         # Print all vector transforms
         if isinstance(index,faiss.swigfaiss_avx2.IndexPreTransform):
