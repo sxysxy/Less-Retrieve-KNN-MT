@@ -9,10 +9,14 @@ step 3. comment the download instructions below and then execute the remaining i
 !
 
 # download pre-processed multi-domain de-en dataset from Google driver
+if [ ! -f "data-bin.zip" ]; then
 pip install gdown
 gdown --fuzzy https://drive.google.com/file/d/18TXCWzoKuxWKHAaCRgddd6Ub64klrVhV/view?usp=sharing
+fi 
 # download wmt19 de-en model from fairseq
+if [ !-f "wmt19.de-en.ffn8192.tar.gz" ]; then 
 wget -c https://dl.fbaipublicfiles.com/fairseq/models/wmt19.de-en.ffn8192.tar.gz
+fi
 
 
 # create data-bin folder and unzip data-bin.zip to it
