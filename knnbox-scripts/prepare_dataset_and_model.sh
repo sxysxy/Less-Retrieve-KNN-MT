@@ -27,3 +27,7 @@ rm data-bin.zip
 mkdir -p ../pretrain-models/wmt19.de-en
 tar -xvf wmt19.de-en.ffn8192.tar.gz -C ../pretrain-models/wmt19.de-en
 rm wmt19.de-en.ffn8192.tar.gz
+
+cp ../data-bin/it/dict.de.txt ../data-bin
+cp ../data-bin/it/dict.en.txt ../data-bin
+touch ../data-bin/stub.de-en.txt

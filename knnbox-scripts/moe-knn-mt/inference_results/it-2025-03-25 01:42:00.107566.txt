@@ -1,0 +1,2 @@
+If you insist your data is detokenized, or don't care, you can suppress this message with the `force` parameter.
+beam=4: BLEU = 39.24 64.5/43.9/33.0/25.4 (BP = 1.000 ratio = 1.000 hyp_len = 22928 ref_len = 22928)
